@@ -1,0 +1,21 @@
+{
+    "mobile-menu-side": "手机上菜单显示在右上角",
+    "theme-settings": "主题设置",
+    "hide-sub-category": "隐藏子版块",
+    "hide-last-entry": "隐藏板块最后回复信息",
+    "enable-quick-reply": "开启快速回复",
+    "card-information": "关于 ",
+    "aboutme": "关于我",
+    "not-support-js": "你的浏览器没有支持JavaScript. 网站很多功能无法使用。",
+    "download-brower-js": "请开启浏览器的JavaScript支持",
+    "last-post": "上一次发表",
+    "show-topic-tid": "显示主题ID",
+    "quick-reply-placeholder": "在此处输入信息快速回复",
+    "enable-category-icon": "显示板块图标",
+    "bagde-title": "徽章",
+    "enable-show-user-all-groups-in-profile": "在用户主页显示所有用户组",
+    "rediect": "外部链接",
+    "show-more": "显示更多",
+    "topic-created": "创建于",
+    "account-ips": "在用户主页显示登录IP地址"
+}
