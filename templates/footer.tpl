@@ -1,4 +1,4 @@
-		</div>
+		</div><!-- /.container#content -->
 	</main>
 	<!-- IF !isSpider -->
 	<div class="topic-search hidden">
@@ -17,16 +17,14 @@
 	</div>
 	<!-- ENDIF !isSpider -->
 
-	<div class="hide">
-	<!-- IMPORT 500-embed.tpl -->
-	</div>
-
 	<script defer src="{relative_path}/assets/nodebb.min.js?{config.cache-buster}"></script>
-	<!-- BEGIN scripts -->
+
+	{{{each scripts}}}
 	<script defer type="text/javascript" src="{scripts.src}"></script>
-	<!-- END scripts -->
+	{{{end}}}
+
 	<script>
-		window.addEventListener('load', function () {
+		window.addEventListener('DOMContentLoaded', function() {
 			require(['forum/footer']);
 
 			<!-- IF useCustomJS -->
@@ -34,5 +32,7 @@
 			<!-- ENDIF useCustomJS -->
 		});
 	</script>
+
+	<div class="hide"><!-- IMPORT 500-embed.tpl --></div>
 </body>
 </html>
