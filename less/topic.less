@@ -1,6 +1,6 @@
 .topic {
 	margin-bottom: 35px;
-	
+
 	> [component="topic"] {
 		padding-top: 20px !important;
 	}
@@ -88,6 +88,12 @@
 		}
 	}
 
+	[component="post"] .necro-post {
+		color: @gray !important;
+		padding-bottom: @font-size-large;
+		margin: 0;
+	}
+
 	[component="post"],
 	.postFlagged {
 		position: relative;
@@ -163,6 +169,16 @@
 					.opacity(0);
 				}
 			}
+
+			@media (max-width: @screen-sm-max) {
+				height: 45px;
+				border: 1px solid @gray-lighter;
+				padding: 0 10px;
+				background: @post-author-background;
+				.border-radius(@border-radius-base 0 0 0);
+				border-right: 0;
+				margin: 0 !important;
+			}
 		}
 
 		.content {
@@ -171,7 +187,6 @@
 			background: #fff;
 			border: 1px solid @gray-lighter;
 			.border-radius(@border-radius-base);
-			.transition(~".5s ease-in-out border-color, .5s ease-in-out border-right-color, .5s ease-in-out filter");
 
 			@media (min-width: @screen-sm-min) {
 				&:after,
@@ -210,6 +225,11 @@
 				padding: 0 15px;
 				background: @post-author-background;
 				border-radius: @border-radius-base @border-radius-base 0 0;
+
+				@media (max-width: @screen-sm-max) {
+					overflow: hidden !important;
+					padding: 0 15px 15px 0;
+				}
 
 				.group-label {
 					text-transform: capitalize;
@@ -258,7 +278,7 @@
 				h5,
 				h6 {
 					margin: 15px 0;
-		
+
 					&:first-child {
 						margin-top: 0px;
 					}
@@ -357,29 +377,29 @@
 				margin-left: 15px;
 				text-decoration: none;
 				font-size: @font-size-small;
-		
+
 				img,
 				.user-icon {
 					.user-icon-style(16px, 10px, 50%);
 					vertical-align: 1px;
 				}
-		
+
 				img {
 					vertical-align: -4px;
 				}
-		
+
 				.replies-count {
 					margin-left: 3px;
 					font-weight: bold;
 				}
-		
+
 				.replies-last {
 					color: @gray-light;
 				}
-		
+
 				.avatars {
 					position: relative;
-		
+
 					&.hasMore > *:last-child:after {
 						content: "\2022\2022\2022";
 						width: 16px;
@@ -408,17 +428,17 @@
 					color: @gray-light;
 					padding: 0 5px;
 					font-size: @font-size-base;
-			
+
 					&:focus {
 						text-decoration: none;
 					}
-			
+
 					&.upvoted,
 					&.downvoted {
 						color: @brand-primary;
 					}
 				}
-			
+
 				[component="post/vote-count"] {
 					min-width: 20px;
 					.inline-block;
@@ -432,20 +452,20 @@
 			.moderator-tools {
 				margin-left: 10px;
 				font-size: 14px;
-		
+
 				> a {
 					padding: .25em;
 				}
-		
+
 				a {
 					color: @gray-light;
 					outline: none;
-		
+
 					&[role="menuitem"] {
 						color: inherit;
 					}
 				}
-		
+
 				.favourite.btn-warning, .follow.btn-success {
 					background: #fff !important;
 					color: #333;

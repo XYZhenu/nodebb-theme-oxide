@@ -4,31 +4,21 @@
 	</button>
 	<ul class="dropdown-menu dropdown-menu-right">
 		<!-- IF loggedIn -->
-
 		<!-- IF !isSelf -->
 		<!-- IF !banned -->
 		<!-- IF !config.disableChat -->
 		<li class="<!-- IF !hasPrivateChat -->hidden<!-- ENDIF !hasPrivateChat -->">
 			<a component="account/chat" href="#">[[user:chat_with, {username}]]</a>
 		</li>
-		<li>
-			<a component="account/new-chat" href="#">[[user:new_chat_with, {username}]]</a>
-		</li>
+		<li><a component="account/new-chat" href="#">[[user:new_chat_with, {username}]]</a></li>
 		<!-- ENDIF !config.disableChat -->
-		<li>
-			<a component="account/flag" href="#">[[user:flag-profile]]</a>
-		</li>
-		<li>
-			<a component="account/block" href="#"><!-- IF !../isBlocked -->[[user:block_user]]<!-- ELSE -->[[user:unblock_user]]<!-- END --></a>
-		</li>
+		<li><a component="account/flag" href="#">[[user:flag-profile]]</a></li>
+		<li><a component="account/block" href="#"><!-- IF !../isBlocked -->[[user:block_user]]<!-- ELSE -->[[user:unblock_user]]<!-- END --></a></li>
 		<li class="divider"></li>
 		<!-- ENDIF !banned -->
 		<!-- ENDIF !isSelf -->
-
-		<!-- END loggedIn -->
-		<li>
-			<a href="{config.relative_path}/user/{userslug}" class="inline-block" id="profile">[[user:profile]]</a>
-		</li>
+		<!-- ENDIF loggedIn -->
+		<li><a href="{config.relative_path}/user/{userslug}" class="inline-block" id="profile">[[user:profile]]</a></li>
 		<!-- IF showHidden -->
 		<li><a href="{config.relative_path}/user/{userslug}/edit">[[user:edit]]</a></li>
 		<li><a href="{config.relative_path}/user/{userslug}/settings">[[user:settings]]</a></li>
@@ -44,9 +34,7 @@
 		</li>
 		<!-- ENDIF canBan -->
 		<!-- IF isAdmin -->
-		<li>
-			<a component="account/delete" href="#" class="">[[user:delete_account]]</a>
-		</li>
+		<li><a component="account/delete" href="#" class="">[[user:delete_account]]</a></li>
 		<!-- ENDIF isAdmin -->
 		<!-- ENDIF !isSelf -->
 
@@ -65,6 +53,7 @@
 		<li><a href="{config.relative_path}/user/{userslug}/groups">[[global:header.groups]]</a></li>
 
 		<!-- IF showHidden -->
+		<li><a href="{config.relative_path}/user/{userslug}/categories">[[user:watched_categories]]</a></li>
 		<li><a href="{config.relative_path}/user/{userslug}/bookmarks">[[user:bookmarks]]</a></li>
 		<li><a href="{config.relative_path}/user/{userslug}/watched">[[user:watched]]</a></li>
 		<li><a href="{config.relative_path}/user/{userslug}/ignored">[[user:ignored]]</a></li>
@@ -77,11 +66,11 @@
 		<li><a href="{config.relative_path}/user/{userslug}/uploads">[[global:uploads]]</a></li>
 		<!-- ENDIF showHidden -->
 
-		<!-- BEGIN profile_links -->
+		{{{each profile_links}}}
 		<!-- IF @first -->
 		<li class="divider"></li>
 		<!-- ENDIF @first -->
 		<li id="{profile_links.id}" class="plugin-link <!-- IF profile_links.public -->public<!-- ELSE -->private<!-- ENDIF profile_links.public -->"><a href="{config.relative_path}/user/{userslug}/{profile_links.route}"><!-- IF ../icon --><i class="fa fa-fw {profile_links.icon}"></i> <!-- END -->{profile_links.name}</a></li>
-		<!-- END profile_links -->
+		{{{end}}}
 	</ul>
 </div>

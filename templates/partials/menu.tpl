@@ -87,6 +87,11 @@
 									[[user:profile]] <strong>{user.username}</strong>
 								</a>
 							</li>
+							<li>
+								<a component="header/profilelink/edit" href="{relative_path}/user/{user.userslug}/edit">
+									<i class="fa fa-fw fa-edit"></i> <span>[[user:edit-profile]]</span>
+								</a>
+							</li>
 							<li role="presentation" class="divider"></li>
 							<li>
 								<a href="#" class="user-status" data-status="online">
@@ -110,8 +115,8 @@
 							</li>
 							<li role="presentation" class="divider"></li>
 							<li>
-								<a component="header/profilelink/edit" href="{relative_path}/user/{user.userslug}/edit">
-									<i class="fa fa-fw fa-edit"></i> <span>[[user:edit-profile]]</span>
+								<a href="#" id="toggle-theme">
+									<i class="fa fa-fw fa-sun-o"></i> <span>[[oxide:toggle-theme-text]]</span>
 								</a>
 							</li>
 							<li>
@@ -231,7 +236,7 @@
 				</ul>
 
 				<ul id="main-nav" class="nav navbar-nav">
-					<!-- BEGIN navigation -->
+					{{{each navigation}}}
 					<!-- IF function.displayMenuItem, @index -->
 					<li class="{navigation.class}">
 						<a class="navigation-link" href="{navigation.route}" title="{navigation.title}" <!-- IF navigation.id -->id="{navigation.id}"<!-- ENDIF navigation.id --><!-- IF navigation.properties.targetBlank --> target="_blank"<!-- ENDIF navigation.properties.targetBlank -->>
@@ -245,7 +250,7 @@
 						</a>
 					</li>
 					<!-- ENDIF function.displayMenuItem -->
-					<!-- END navigation -->
+					{{{end}}}
 				</ul>
 
 				<!-- ELSE -->
